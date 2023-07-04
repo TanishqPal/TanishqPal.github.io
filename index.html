@@ -5,9 +5,7 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <script>
     function fetchData() {
-      fetch("http://192.168.1.104/data",{
-        referrerPolicy: "unsafe_url" 
-        }   ) // Replace with your ESP8266 IP address
+      fetch("http://192.168.1.104/data") // Replace with your ESP8266 IP address
         .then(response => response.json())
         .then(data => {
           document.getElementById("data").textContent = data.data;
