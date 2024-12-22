@@ -32,7 +32,7 @@
         ]
       },
       {
-        "title": "Data Fetching and Web Scraping Projects",
+        "title": "Data Fetching, Web Scraping and Visualisation Projects",
         "description": "Implemented multiple data-fetching and web scraping projects to extract, analyze, and visualize data from APIs and websites.",
         "link": "https://github.com/TanishqPal/API",
         "tools_and_technologies": ["BeautifulSoup4", "Pandas", "Matplotlib", "Seaborn", "Requests", "Flask"],
