@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/beercss@3.8.0/dist/cdn/beer.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- Navbar on medium and large screens (Hidden on small screens) -->
+
+    <nav class="m l left">
+        <header>
+            <img class="circle" src="/assets/image.jpeg">
+        </header>
+
+        <a href="#">
+            <i>home</i>
+            <span>HOME</span>
+        </a>
+        <a href="#about">
+            <i>account_circle</i>
+            <span>ABOUT</span>
+        </a>
+        <a href="#projects">
+            <i>widgets</i>
+            <span>PROJECT</span>
+        </a>
+        <a href="#contact">
+            <i>mail</i>
+            <span>CONTACT</span>
+        </a>
+    </nav>
+    <!-- Navbar on small screens (Hidden on medium and large screens) -->
+    <nav class="s bottom">
+        <a href="#">
+            <i>home</i>
+            <span>HOME</span>
+        </a>
+        <a href="#about">
+            <i>account_circle</i>
+            <span>ABOUT</span>
+        </a>
+        <a href="#projects">
+            <i>widgets</i>
+            <span>PROJECTS</span>
+        </a>
+        <a href="#contact">
+            <i>mail</i>
+            <span>CONTACT</span>
+        </a>
+    </nav>
+
+
+
+
+    <!-- Page Content -->
+    <main class="responsive max">
+        <!-- Header/Home -->
+        <div id="home">
+            <h1>I'm Tanishq Pal.</h1>
+            <p>Recent Graduate, Aspiring Software Developer.</p>
+            <img class="extra-width" src="/assets/image2.jpeg"> 
+            <!-- class="large-width large-height responsive round"  -->
+        </div>
+        <div class="large-space"></div>
+        <!-- About Section -->
+        <div id="about">
+            <h2>About Me</h2>
+            <p>Hi, I’m Tanishq Pal, a recent graduate with a passion for software development and programming. I have a
+                solid foundation in programming languages such as Python, Java, and C++, and I’ve developed hands-on
+                experience working on projects involving web development, application development, and database
+                management. I am eager to apply my skills to contribute to a dynamic software development team, solve
+                complex problems, and continue learning and growing in the field.</p>
+            <div class="small-space"></div>
+            <h3>My Skills</h3>
+
+            <article>
+                <h5>Programming (Python, Java, C++)</h5>
+                <progress class="max" value="95" max="100"></progress>
+
+            </article>
+
+            <article>
+                <h5>Web Development</h5>
+                <progress class="max " value="90" max="100"></progress>
+            </article>
+            <article>
+                <h5>Problem Solving</h5>
+                <progress class="max" value="85" max="100"></progress>
+            </article>
+            <div class="page-padding">
+
+                <button class="transparent chip" onclick="window.open('assets/TanishqPal-Resume.pdf')">
+                    <i>folder_shared</i> Open Resume
+                </button>
+            </div>
+        </div>
+        <div class="large-space"></div>
+        <!-- Portfolio Section -->
+        <div id="projects">
+            <h2>My Projects</h2>
+
+            <!-- Grid for projects -->
+            <div class="grid">
+                <!-- Project 1 -->
+                <div class="s12 m12 l6">
+                    <article class="slow-ripple">
+                        <h3>E-Commerce Website Deployment</h3>
+                        <p><strong>Description:</strong> Developed and deployed a fully functional e-commerce website
+                            with a modern, responsive design, including both frontend and backend integration.</p>
+                        <p><strong>Tools and Technologies:</strong> Gatsby, React, Prettier, CSS, Netlify</p>
+                        <ul>
+                            <li>Modern and responsive UI</li>
+                            <li>Deployed on Netlify for high availability</li>
+                            <li>Utilized Gatsby for fast loading and SEO optimization</li>
+                        </ul>
+                        <div class="space"></div>
+                        <nav>
+                            <button><a href="https://gatsby-ecommerce-theme.netlify.app/" target="_blank">View
+                                    Project</a>
+                            </button>
+                        </nav>
+                    </article>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="s12 m12 l6">
+                    <article>
+                        <h3>Data Fetching and Visualisation Project</h3>
+                        <p><strong>Description:</strong> Implemented multiple data-fetching and web scraping projects to
+                            extract, analyze, and visualize data from APIs and websites.</p>
+                        <p><strong>Tools and Technologies:</strong> BeautifulSoup4, Pandas, Matplotlib, Seaborn,
+                            Requests, Flask</p>
+                        <ul>
+                            <li>Created Python scripts for API data fetching and visualization</li>
+                            <li>Built a web scraping tool using BeautifulSoup4 for data extraction</li>
+                            <li>Analyzed and visualized fetched data using Pandas and Matplotlib</li>
+                        </ul>
+                        
+                        <nav>
+                            <button> <a href="https://github.com/TanishqPal/API" target="_blank">View Project</a>
+
+                            </button>
+                        </nav>
+                    </article>
+                </div>
+
+                
+                <!-- Project 3 -->
+                <div class="s12 m12 l6">
+                    <article>
+                        <h3>IoT Application in Home Automation</h3>
+                        <p><strong>Description:</strong> Designed a home automation system with intelligent device
+                            control and data communication using a Telegram bot and Arduino.</p>
+                        <p><strong>Tools and Technologies:</strong> NodeMCU, Arduino, NTP Servers, Telegram Bot, HTTPS
+                            Servers, APIs</p>
+                        <ul>
+                            <li>Automated device control with water flow monitoring</li>
+                            <li>Wi-Fi-enabled communication to send and receive data</li>
+                            <li>Integration with Telegram bot for user notifications and commands</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="s12 m12 l6">
+                    <article>
+                        <h3>Real-Time Image Classification App</h3>
+                        <p><strong>Description:</strong> Built a real-time image classification app leveraging a
+                            pre-trained machine learning model, including a mobile app for Android.</p>
+                        <p><strong>Tools and Technologies:</strong> TensorFlow, Python Notebook, Android Studio, ML</p>
+                        <ul>
+                            <li>Real-time image classification using TensorFlow</li>
+                            <li>Mobile app implementation for user-friendly interaction</li>
+                            <li>Integrated pre-trained ML models for efficient classification</li>
+                        </ul>
+                    </article>
+                </div>
+
+            </div>
+            <!-- End projects grid -->
+        </div>
+        <!-- End Portfolio Section -->
+
+        <!-- Contact Section -->
+        <!-- Include beer.css -->
+        <div class="large-space"></div>
+        <div id="contact" class="card">
+            <h2>Contact Me</h2>
+            <p>If you have any questions or inquiries, feel free to email me directly.</p>
+
+            <div class="flex-center gap-md">
+                <!-- Stack Overflow -->
+                <a href="https://stackoverflow.com/users/14646326/tanishq-pal" target="_blank">
+                    <i class="fa fa-stack-overflow fa-2x"></i>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:mail@mail.com">
+                    <i class="fa fa-envelope fa-2x"></i>
+                </a>
+
+                <!-- LeetCode -->
+                <a href="https://leetcode.com/u/TanishqPal/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/LeetCode_Logo_1.png" class="tiny">
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/TanishqPal" target="_blank">
+                    <i class="fa fa-github fa-2x"></i>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/tanishq-pal/" target="_blank">
+                    <i class="fa fa-linkedin fa-2x"></i>
+                </a>
+            </div>
+        </div>
+
+
+        <!-- END PAGE CONTENT -->
+    </main>
+
+</body>
+
+</html>
