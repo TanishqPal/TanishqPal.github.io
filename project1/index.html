@@ -19,6 +19,7 @@
     font-size:clamp(28px,10vw,72px); text-align:center;
     padding:20px; margin:12px; border-radius:12px;
     background:white; box-shadow:0 4px 12px rgba(0,0,0,.15);
+    cursor:pointer;
   }
 </style>
 </head>
@@ -77,8 +78,8 @@ function flipOrNext(){
   else{showQuestion();}
 }
 
-card.addEventListener('click',flipOrNext);
-document.body.addEventListener('touchstart',flipOrNext);
+// Use only click (works on desktop and mobile without double-firing)
+card.addEventListener('click', flipOrNext);
 </script>
 </body>
 </html>
