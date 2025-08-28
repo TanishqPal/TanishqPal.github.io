@@ -1,14 +1,84 @@
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/beercss@3.8.0/dist/cdn/beer.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is the portfolio or project showcase page.</p>
-    <script src="script.js"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Flashcards</title>
+<style>
+  body {
+    margin:0; height:100vh; display:flex; flex-direction:column;
+    font-family:sans-serif; background:#f5f5f5; user-select:none;
+  }
+  header {
+    padding:8px; display:flex; flex-wrap:wrap; gap:6px;
+    background:#fff; border-bottom:1px solid #ddd;
+    font-size:14px;
+  }
+  #card {
+    flex:1; display:flex; align-items:center; justify-content:center;
+    font-size:clamp(28px,10vw,72px); text-align:center;
+    padding:20px; margin:12px; border-radius:12px;
+    background:white; box-shadow:0 4px 12px rgba(0,0,0,.15);
+  }
+</style>
+</head>
+<body>
+<header>
+  <label><input type="checkbox" value="tables" checked> Tables >12</label>
+  <label><input type="checkbox" value="squares" checked> Squares ≥12²</label>
+  <label><input type="checkbox" value="cubes" checked> Cubes ≥12³</label>
+  <label><input type="checkbox" value="sqroots" checked> √</label>
+  <label><input type="checkbox" value="cbroots" checked> ∛</label>
+  <label><input type="checkbox" value="a2n" checked> a→n</label>
+  <label><input type="checkbox" value="n2a" checked> n→a</label>
+  <label><input type="checkbox" value="opposites" checked> Opposites</label>
+</header>
+<div id="card">Tap to begin</div>
+
+<script>
+const card=document.getElementById('card');
+let showingAnswer=false, current={q:"",a:""};
+
+function randInt(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
+function oppositeLetter(ch){const n=ch.charCodeAt(0)-96;return String.fromCharCode(96+(27-n));}
+
+// Generators
+function gen_tables(){
+  const base=randInt(13,20);
+  const mult=randInt(1,10);
+  return {q:`${base} × ${mult}`,a:String(base*mult)};
+}
+function gen_squares(){let n=randInt(12,40);return {q:`${n}²`,a:String(n*n)};}
+function gen_cubes(){let n=randInt(12,20);return {q:`${n}³`,a:String(n**3)};}
+function gen_sqroots(){let n=randInt(1,40);return {q:`√${n*n}`,a:String(n)};}
+function gen_cbroots(){let n=randInt(1,20);return {q:`∛${n**3}`,a:String(n)};}
+function gen_a2n(){let n=randInt(1,26);return {q:String.fromCharCode(96+n),a:String(n)};}
+function gen_n2a(){let n=randInt(1,26);return {q:String(n),a:String.fromCharCode(96+n)};}
+function gen_opposites(){let n=randInt(1,26);let ch=String.fromCharCode(96+n);return {q:`Opposite of ${ch}`,a:oppositeLetter(ch)};}
+
+const generators={tables:gen_tables,squares:gen_squares,cubes:gen_cubes,
+  sqroots:gen_sqroots,cbroots:gen_cbroots,a2n:gen_a2n,n2a:gen_n2a,opposites:gen_opposites};
+
+function getSelectedModes(){
+  return [...document.querySelectorAll('header input:checked')].map(cb=>cb.value);
+}
+
+function randomCard(){
+  const modes=getSelectedModes();
+  if(modes.length===0) return {q:"Select at least one mode",a:""};
+  const mode=modes[randInt(0,modes.length-1)];
+  return generators[mode]();
+}
+
+function showQuestion(){current=randomCard();card.textContent=current.q;showingAnswer=false;}
+function flipOrNext(){
+  if(!current.q){showQuestion();return;}
+  if(!showingAnswer){card.textContent=current.a;showingAnswer=true;}
+  else{showQuestion();}
+}
+
+card.addEventListener('click',flipOrNext);
+document.body.addEventListener('touchstart',flipOrNext);
+</script>
+</body>
 </html>
